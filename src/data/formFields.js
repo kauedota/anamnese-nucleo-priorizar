@@ -40,18 +40,6 @@ export const formSections = [
             placeholder: "Ex: São Paulo - SP",
           },
           {
-            name: "escola",
-            label: "Escola / Instituição que frequenta",
-            type: "text",
-            placeholder: "Nome da escola",
-          },
-          {
-            name: "anoSerie",
-            label: "Ano / Série escolar",
-            type: "text",
-            placeholder: "Ex: 1º ano EF",
-          },
-          {
             name: "diagnosticosConfirmados",
             label: "Diagnóstico(s) já confirmado(s)",
             type: "text",
@@ -133,12 +121,29 @@ export const formSections = [
             name: "historicoFamiliar",
             label: "Há histórico familiar de transtornos do neurodesenvolvimento?",
             type: "textarea",
-            placeholder: "Ex: Tio paterno com diagnóstico de TEA...",
+            placeholder: "Ex: Tio paterno com diagnóstico de TEA, familiares com TDAH...",
           },
         ],
       },
       {
-        title: "Profissional responsável",
+        title: "Dados escolares iniciais",
+        fields: [
+          {
+            name: "escola",
+            label: "Escola / Instituição que frequenta",
+            type: "text",
+            placeholder: "Nome da escola",
+          },
+          {
+            name: "anoSerie",
+            label: "Ano / Série escolar",
+            type: "text",
+            placeholder: "Ex: 1º ano EF",
+          },
+        ],
+      },
+      {
+        title: "Profissional responsável pelo preenchimento",
         fields: [
           {
             name: "nomeProfissional",
@@ -192,7 +197,7 @@ export const formSections = [
             name: "intercorrenciasGestacao",
             label: "Intercorrências durante a gestação",
             type: "textarea",
-            placeholder: "Ex: hipertensão, infecções, uso de medicamentos...",
+            placeholder: "Ex: hipertensão, diabetes gestacional, infecções, uso de medicamentos...",
           },
           {
             name: "usoSubstanciasGestacao",
@@ -204,7 +209,7 @@ export const formSections = [
             name: "semanasGestacao",
             label: "Semanas de gestação ao nascer",
             type: "text",
-            placeholder: "Ex: 38",
+            placeholder: "Ex: 38 semanas",
           },
         ],
       },
@@ -227,13 +232,13 @@ export const formSections = [
             name: "pesoNascer",
             label: "Peso ao nascer",
             type: "text",
-            placeholder: "Ex: 3.200",
+            placeholder: "Ex: 3.200kg",
           },
           {
             name: "comprimentoNascer",
             label: "Comprimento ao nascer",
             type: "text",
-            placeholder: "Ex: 50",
+            placeholder: "Ex: 50cm",
           },
           {
             name: "apgar",
@@ -299,35 +304,13 @@ export const formSections = [
     ],
   },
   {
-    title: "Desenvolvimento",
-    subtitle: "Desenvolvimento Global e Comportamento",
-    description: "Marcos do desenvolvimento neuropsicomotor, comportamento e aspectos emocionais.",
+    title: "Psicologia / Desenvolvimento",
+    subtitle: "Comportamento, Interação Social e Aspectos Emocionais",
+    description: "Informações sobre comportamento social, interesses, rotina, emoções e possíveis sinais do desenvolvimento.",
     badge: "Seção 3",
     blocks: [
       {
-        title: "Marcos do desenvolvimento motor",
-        fields: [
-          { name: "sustentouCabeca", label: "Sustentou a cabeça", type: "text", placeholder: "Ex: 3 meses" },
-          { name: "sentouSemApoio", label: "Sentou sem apoio", type: "text", placeholder: "Ex: 7 meses" },
-          { name: "engatinhou", label: "Engatinhou", type: "text", placeholder: "Ex: 9 meses" },
-          { name: "ficouPeComApoio", label: "Ficou em pé com apoio", type: "text", placeholder: "Ex: 10 meses" },
-          { name: "andouSozinho", label: "Andou sozinho", type: "text", placeholder: "Ex: 13 meses" },
-          { name: "subiuEscadas", label: "Subiu/desceu escadas", type: "text", placeholder: "Ex: 24 meses" },
-        ],
-      },
-      {
-        title: "Marcos da linguagem",
-        fields: [
-          { name: "primeirasVocalizacoes", label: "Primeiras vocalizações", type: "text", placeholder: "Ex: 2 meses" },
-          { name: "balbucio", label: "Balbucio", type: "text", placeholder: "Ex: 6 meses" },
-          { name: "primeirasPalavras", label: "Primeiras palavras", type: "text", placeholder: "Ex: 12 meses" },
-          { name: "juncaoPalavras", label: "Junção de 2 palavras", type: "text", placeholder: "Ex: 24 meses" },
-          { name: "frasesCompletas", label: "Frases completas", type: "text", placeholder: "Ex: 36 meses" },
-          { name: "houveRegressaoLinguagem", label: "Houve regressão da linguagem?", type: "radio", options: ["Sim", "Não"] },
-        ],
-      },
-      {
-        title: "Comportamentos sociais e comunicação",
+        title: "Comportamentos sociais e comunicação social",
         fields: [
           {
             name: "comportamentosSociais",
@@ -409,7 +392,7 @@ export const formSections = [
         ],
       },
       {
-        title: "Comportamentos repetitivos e restritos",
+        title: "Comportamentos repetitivos e interesses",
         fields: [
           {
             name: "comportamentosRepetitivos",
@@ -430,19 +413,19 @@ export const formSections = [
             name: "descricaoComportamentosRepetitivos",
             label: "Descreva com mais detalhes os comportamentos acima",
             type: "textarea",
-            placeholder: "Frequência, contextos, o que acalma ou exacerba...",
+            placeholder: "Frequência, contextos, o que acalma ou piora esses comportamentos...",
           },
-        ],
-      },
-      {
-        title: "Aspectos emocionais e comportamentais",
-        fields: [
           {
             name: "maioresInteressesCrianca",
             label: "Maiores interesses da criança",
             type: "textarea",
             placeholder: "Ex: músicas, desenhos, brinquedos, jogos, comidas, personagens, objetos ou atividades preferidas...",
           },
+        ],
+      },
+      {
+        title: "Aspectos emocionais e rotina",
+        fields: [
           {
             name: "mudancasRotina",
             label: "Como a criança reage a mudanças de rotina?",
@@ -459,7 +442,7 @@ export const formSections = [
             name: "medosFobias",
             label: "Medos e fobias",
             type: "textarea",
-            placeholder: "Ex: medo de banhos altos, lugares novos...",
+            placeholder: "Ex: medo de barulhos altos, lugares novos, banho, animais...",
           },
           {
             name: "sonoRotina",
@@ -478,11 +461,52 @@ export const formSections = [
     ],
   },
   {
-    title: "Linguagem / Fono",
-    subtitle: "Linguagem, Fala e Comunicação",
-    description: "Avaliação detalhada das habilidades comunicativas verbais e não verbais.",
+    title: "Fonoaudiologia",
+    subtitle: "Linguagem, Fala, Comunicação e Alimentação Oral",
+    description: "Informações sobre fala, compreensão, comunicação, ecolalia, mastigação, deglutição e aspectos auditivos.",
     badge: "Seção 4",
     blocks: [
+      {
+        title: "Marcos da linguagem",
+        fields: [
+          {
+            name: "primeirasVocalizacoes",
+            label: "Primeiras vocalizações",
+            type: "text",
+            placeholder: "Ex: 2 meses",
+          },
+          {
+            name: "balbucio",
+            label: "Balbucio",
+            type: "text",
+            placeholder: "Ex: 6 meses",
+          },
+          {
+            name: "primeirasPalavras",
+            label: "Primeiras palavras",
+            type: "text",
+            placeholder: "Ex: 12 meses",
+          },
+          {
+            name: "juncaoPalavras",
+            label: "Junção de 2 palavras",
+            type: "text",
+            placeholder: "Ex: 24 meses",
+          },
+          {
+            name: "frasesCompletas",
+            label: "Frases completas",
+            type: "text",
+            placeholder: "Ex: 36 meses",
+          },
+          {
+            name: "houveRegressaoLinguagem",
+            label: "Houve regressão da linguagem?",
+            type: "radio",
+            options: ["Sim", "Não"],
+          },
+        ],
+      },
       {
         title: "Comunicação atual",
         fields: [
@@ -530,13 +554,13 @@ export const formSections = [
         ],
       },
       {
-        title: "Aspectos oromiofuncionais",
+        title: "Aspectos oromiofuncionais e auditivos",
         fields: [
           {
             name: "dificuldadesMastigacao",
             label: "Dificuldades de mastigação / deglutição",
             type: "textarea",
-            placeholder: "Ex: engole sem mastigar, rejeita alimentos sólidos...",
+            placeholder: "Ex: engole sem mastigar, rejeita alimentos sólidos, engasga com frequência...",
           },
           {
             name: "respiracaoPredominante",
@@ -563,7 +587,7 @@ export const formSections = [
   {
     title: "Pedagógico",
     subtitle: "Aprendizagem e Vida Escolar",
-    description: "Avaliação das habilidades cognitivas, acadêmicas e de inclusão escolar.",
+    description: "Informações sobre aprendizagem, habilidades acadêmicas, atenção e inclusão escolar.",
     badge: "Seção 5",
     blocks: [
       {
@@ -642,11 +666,52 @@ export const formSections = [
     ],
   },
   {
-    title: "Motor / Fisio / TO",
-    subtitle: "Motricidade, Sensorial e Terapias",
-    description: "Avaliação motora, atividades de vida diária e processamento sensorial.",
+    title: "Fisioterapia",
+    subtitle: "Motricidade Grossa, Equilíbrio e Tônus Muscular",
+    description: "Informações sobre marcos motores, força, equilíbrio, coordenação, quedas e dificuldades motoras.",
     badge: "Seção 6",
     blocks: [
+      {
+        title: "Marcos do desenvolvimento motor",
+        fields: [
+          {
+            name: "sustentouCabeca",
+            label: "Sustentou a cabeça",
+            type: "text",
+            placeholder: "Ex: 3 meses",
+          },
+          {
+            name: "sentouSemApoio",
+            label: "Sentou sem apoio",
+            type: "text",
+            placeholder: "Ex: 7 meses",
+          },
+          {
+            name: "engatinhou",
+            label: "Engatinhou",
+            type: "text",
+            placeholder: "Ex: 9 meses",
+          },
+          {
+            name: "ficouPeComApoio",
+            label: "Ficou em pé com apoio",
+            type: "text",
+            placeholder: "Ex: 10 meses",
+          },
+          {
+            name: "andouSozinho",
+            label: "Andou sozinho",
+            type: "text",
+            placeholder: "Ex: 13 meses",
+          },
+          {
+            name: "subiuEscadas",
+            label: "Subiu/desceu escadas",
+            type: "text",
+            placeholder: "Ex: 24 meses",
+          },
+        ],
+      },
       {
         title: "Motricidade grossa",
         fields: [
@@ -654,7 +719,15 @@ export const formSections = [
             name: "habilidadesGrossas",
             label: "Habilidades motoras grossas presentes",
             type: "checkbox",
-            options: ["Corre", "Pula com os dois pés", "Pula num pé só", "Sobe/desce escadas alternando pés", "Anda de bicicleta/triciclo", "Chuta bola", "Arremessa bola"],
+            options: [
+              "Corre",
+              "Pula com os dois pés",
+              "Pula num pé só",
+              "Sobe/desce escadas alternando pés",
+              "Anda de bicicleta/triciclo",
+              "Chuta bola",
+              "Arremessa bola",
+            ],
           },
           {
             name: "equilibrio",
@@ -677,10 +750,18 @@ export const formSections = [
             name: "dificuldadesMotoras",
             label: "Dificuldades motoras relatadas",
             type: "textarea",
-            placeholder: "Ex: cai com frequência, dificuldade em atividades físicas...",
+            placeholder: "Ex: cai com frequência, tropeça muito, dificuldade em atividades físicas, cansa rápido...",
           },
         ],
       },
+    ],
+  },
+  {
+    title: "Terapia Ocupacional / Sensorial",
+    subtitle: "Motricidade Fina, AVDs e Processamento Sensorial",
+    description: "Informações sobre autonomia, coordenação fina, atividades diárias e respostas sensoriais.",
+    badge: "Seção 7",
+    blocks: [
       {
         title: "Motricidade fina e AVDs",
         fields: [
@@ -688,13 +769,26 @@ export const formSections = [
             name: "motricidadeFina",
             label: "Habilidades de motricidade fina",
             type: "checkbox",
-            options: ["Segura lápis/caneta", "Pinta dentro do contorno", "Recorta com tesoura", "Abotoa/desabotoa", "Amarra cadarços", "Encaixe/manipulação de objetos pequenos"],
+            options: [
+              "Segura lápis/caneta",
+              "Pinta dentro do contorno",
+              "Recorta com tesoura",
+              "Abotoa/desabotoa",
+              "Amarra cadarços",
+              "Encaixe/manipulação de objetos pequenos",
+            ],
           },
           {
             name: "avds",
             label: "Atividades de vida diária",
             type: "checkbox",
-            options: ["Veste-se sozinha", "Escova os dentes com auxílio", "Toma banho com auxílio", "Come sozinha", "Usa o banheiro sozinha"],
+            options: [
+              "Veste-se sozinha",
+              "Escova os dentes com auxílio",
+              "Toma banho com auxílio",
+              "Come sozinha",
+              "Usa o banheiro sozinha",
+            ],
           },
           {
             name: "lateralidade",
@@ -772,16 +866,26 @@ export const formSections = [
     ],
   },
   {
-    title: "Nutrição",
-    subtitle: "Alimentação e Estado Nutricional",
-    description: "Hábitos alimentares, seletividade e aspectos nutricionais.",
-    badge: "Seção 7",
+    title: "Nutrição / Finalização",
+    subtitle: "Alimentação, Hábitos Nutricionais e Envio",
+    description: "Informações sobre alimentação, seletividade, rotina alimentar, objetivos da família e finalização da anamnese.",
+    badge: "Seção 8",
     blocks: [
       {
         title: "Perfil alimentar",
         fields: [
-          { name: "pesoAtual", label: "Peso atual", type: "text", placeholder: "Ex: 25kg" },
-          { name: "alturaAtual", label: "Altura atual", type: "text", placeholder: "Ex: 1,10m" },
+          {
+            name: "pesoAtual",
+            label: "Peso atual",
+            type: "text",
+            placeholder: "Ex: 25kg",
+          },
+          {
+            name: "alturaAtual",
+            label: "Altura atual",
+            type: "text",
+            placeholder: "Ex: 1,10m",
+          },
           {
             name: "curvaCrescimento",
             label: "Curva de crescimento",
@@ -815,7 +919,7 @@ export const formSections = [
         ],
       },
       {
-        title: "Hábitos e dificuldades",
+        title: "Hábitos e dificuldades alimentares",
         fields: [
           {
             name: "comportamentosAlimentares",
@@ -858,14 +962,6 @@ export const formSections = [
           },
         ],
       },
-    ],
-  },
-  {
-    title: "Finalizar",
-    subtitle: "Revisão e Envio da Anamnese",
-    description: "Adicione informações complementares e gere o documento final.",
-    badge: "Seção 8",
-    blocks: [
       {
         title: "Informações complementares",
         fields: [
@@ -873,6 +969,7 @@ export const formSections = [
             name: "queixaFinal",
             label: "Queixa principal / motivo do atendimento",
             type: "textarea",
+            required: true,
             placeholder: "O que motivou a busca pelo serviço ou pelo preenchimento desta anamnese...",
           },
           {
@@ -885,6 +982,7 @@ export const formSections = [
             name: "objetivosFamilia",
             label: "Objetivos e expectativas da família",
             type: "textarea",
+            required: true,
             placeholder: "O que a família espera alcançar com o acompanhamento profissional...",
           },
           {
@@ -903,6 +1001,7 @@ export const formSections = [
             name: "emailProfissional",
             label: "E-mail do profissional para constar no documento",
             type: "email",
+            required: true,
             placeholder: "profissional@clinica.com.br",
           },
         ],
