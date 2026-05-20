@@ -34,12 +34,6 @@ export const formSections = [
             options: ["Masculino", "Feminino"],
           },
           {
-            name: "identidadeGenero",
-            label: "Identidade de gênero, se aplicável",
-            type: "text",
-            placeholder: "Conforme indicado pelo responsável",
-          },
-          {
             name: "cidadeEstado",
             label: "Cidade / Estado",
             type: "text",
@@ -352,6 +346,66 @@ export const formSections = [
               "Inicia interação social espontaneamente",
             ],
           },
+          {
+            name: "contextoContatoVisual",
+            label: "Em que contexto mantém contato visual?",
+            type: "textarea",
+            placeholder: "Ex: mantém contato visual apenas quando quer pedir algo, mas desvia o olhar em outras situações...",
+          },
+          {
+            name: "contextoRespondeNome",
+            label: "Em que contexto responde ao próprio nome?",
+            type: "textarea",
+            placeholder: "Ex: responde quando está perto, mas não responde quando está brincando ou vendo TV...",
+          },
+          {
+            name: "contextoSorrisoResponsivo",
+            label: "Em que contexto sorri de forma responsiva?",
+            type: "textarea",
+            placeholder: "Ex: sorri quando alguém brinca com ela, mas nem sempre responde ao sorriso de outras pessoas...",
+          },
+          {
+            name: "contextoApontar",
+            label: "Em que contexto aponta para mostrar ou pedir algo?",
+            type: "textarea",
+            placeholder: "Ex: aponta quando quer água, brinquedo ou comida, mas não costuma apontar para mostrar algo interessante...",
+          },
+          {
+            name: "contextoImitacao",
+            label: "Em que contexto imita ações ou sons?",
+            type: "textarea",
+            placeholder: "Ex: imita músicas, sons de animais, gestos ou ações de adultos em algumas brincadeiras...",
+          },
+          {
+            name: "contextoCompartilharInteresse",
+            label: "Em que contexto busca compartilhar interesses?",
+            type: "textarea",
+            placeholder: "Ex: chama alguém para mostrar desenho, brinquedo, música ou algo que gosta muito...",
+          },
+          {
+            name: "contextoEntendeEmocoes",
+            label: "Em que contexto entende emoções dos outros?",
+            type: "textarea",
+            placeholder: "Ex: percebe quando alguém está triste, bravo ou feliz, ou parece não notar essas mudanças...",
+          },
+          {
+            name: "contextoBrincaCriancas",
+            label: "Como brinca com outras crianças?",
+            type: "textarea",
+            placeholder: "Ex: brinca junto, brinca ao lado sem interagir muito, prefere brincar sozinha...",
+          },
+          {
+            name: "contextoJogoSimbolico",
+            label: "Como acontece o jogo simbólico / faz de conta?",
+            type: "textarea",
+            placeholder: "Ex: finge dar comida para boneca, brincar de casinha, carrinho, médico ou escolinha...",
+          },
+          {
+            name: "contextoInteracaoSocial",
+            label: "Como inicia interação social espontaneamente?",
+            type: "textarea",
+            placeholder: "Ex: chama para brincar, pede ajuda, mostra objetos ou procura adultos/crianças sem ser chamado...",
+          },
         ],
       },
       {
@@ -383,6 +437,12 @@ export const formSections = [
       {
         title: "Aspectos emocionais e comportamentais",
         fields: [
+          {
+            name: "maioresInteressesCrianca",
+            label: "Maiores interesses da criança",
+            type: "textarea",
+            placeholder: "Ex: músicas, desenhos, brinquedos, jogos, comidas, personagens, objetos ou atividades preferidas...",
+          },
           {
             name: "mudancasRotina",
             label: "Como a criança reage a mudanças de rotina?",
@@ -434,21 +494,26 @@ export const formSections = [
           },
           {
             name: "inteligibilidadeFala",
-            label: "Inteligibilidade da fala",
+            label: "Inteligibilidade da fala — o quanto a fala da criança é compreendida por outras pessoas",
             type: "select",
             options: ["Boa", "Regular", "Baixa", "Não se aplica"],
           },
           {
             name: "vocabularioExpressivo",
-            label: "Vocabulário expressivo estimado",
+            label: "Vocabulário expressivo estimado — quantidade e forma como a criança usa palavras para se comunicar",
             type: "select",
             options: ["Ausente", "Poucas palavras", "Frases simples", "Frases complexas"],
           },
           {
             name: "apresentaEcolalia",
-            label: "Apresenta ecolalia?",
+            label: "Apresenta ecolalia? Ecolalia é quando a criança repete palavras ou frases que ouviu",
             type: "radio",
-            options: ["Não", "Ecolalia imediata", "Ecolalia tardia", "Ambas"],
+            options: [
+              "Não",
+              "Ecolalia imediata — repete logo após ouvir",
+              "Ecolalia tardia — repete depois de um tempo, como frases de desenhos, vídeos ou pessoas",
+              "Ambas",
+            ],
           },
           {
             name: "compreensaoVerbal",
@@ -484,12 +549,6 @@ export const formSections = [
             label: "Hipersalivação?",
             type: "radio",
             options: ["Sim", "Não"],
-          },
-          {
-            name: "transicaoAlimentar",
-            label: "Tempo para transição alimentar ou textura?",
-            type: "textarea",
-            placeholder: "Período, abordagem utilizada, evolução observada...",
           },
           {
             name: "avaliacaoAuditiva",
@@ -599,15 +658,20 @@ export const formSections = [
           },
           {
             name: "equilibrio",
-            label: "Equilíbrio",
+            label: "Equilíbrio — capacidade de manter o corpo estável ao andar, correr, pular ou mudar de posição",
             type: "select",
             options: ["Adequado", "Regular", "Alterado"],
           },
           {
             name: "tonusMuscular",
-            label: "Tônus muscular",
+            label: "Tônus muscular — nível de firmeza ou tensão dos músculos da criança",
             type: "select",
-            options: ["Normal", "Hipotonia", "Hipertonia", "Misto"],
+            options: [
+              "Normal",
+              "Hipotonia — músculos mais molinhos ou com pouca firmeza",
+              "Hipertonia — músculos mais rígidos ou duros",
+              "Misto — alterna entre pouca firmeza e rigidez",
+            ],
           },
           {
             name: "dificuldadesMotoras",
@@ -645,56 +709,63 @@ export const formSections = [
         fields: [
           {
             name: "perfilTatil",
-            label: "Tato",
+            label: "Tato — reação da criança ao toque, roupas, texturas, etiquetas, abraço ou contato físico",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
+            options: [
+              "Normal / sem alteração",
+              "Hiper — reage de forma intensa, se incomoda ou evita o estímulo",
+              "Hipo — percebe menos ou busca mais estímulo",
+            ],
           },
           {
             name: "perfilAuditivo",
-            label: "Audição",
+            label: "Audição — reação da criança a sons, barulhos altos, músicas, vozes ou ambientes movimentados",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
+            options: [
+              "Normal / sem alteração",
+              "Hiper — se incomoda muito com sons ou tampa os ouvidos",
+              "Hipo — parece não perceber sons ou busca sons mais intensos",
+            ],
           },
           {
             name: "perfilVisual",
-            label: "Visão",
+            label: "Visão — reação da criança a luzes, telas, objetos girando, cores ou ambientes muito estimulantes",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
+            options: [
+              "Normal / sem alteração",
+              "Hiper — se incomoda com luzes, telas ou estímulos visuais",
+              "Hipo — busca luzes, movimentos, objetos girando ou estímulos visuais",
+            ],
           },
           {
             name: "perfilOlfatoPaladar",
-            label: "Paladar / Olfato",
+            label: "Paladar / Olfato — reação da criança a cheiros, sabores, texturas e temperaturas dos alimentos",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
+            options: [
+              "Normal / sem alteração",
+              "Hiper — se incomoda muito com cheiros, sabores ou texturas",
+              "Hipo — busca cheiros/sabores fortes ou coloca objetos na boca",
+            ],
           },
           {
             name: "perfilPropriocepcao",
-            label: "Propriocepção",
+            label: "Propriocepção — percepção do próprio corpo; pode envolver busca por apertos, empurrar, pular ou bater o corpo",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
+            options: [
+              "Normal / sem alteração",
+              "Hiper — evita contato físico, pressão ou movimentos corporais",
+              "Hipo — busca pressão, apertos, empurrar, pular ou bater o corpo",
+            ],
           },
           {
             name: "perfilVestibular",
-            label: "Vestibular",
+            label: "Vestibular — equilíbrio e movimento; reação a balanço, giro, altura, escorregador ou movimento rápido",
             type: "radio",
-            options: ["Normal / sem alteração", "Hiper", "Hipo"],
-          },
-        ],
-      },
-      {
-        title: "Terapias em andamento",
-        fields: [
-          {
-            name: "fisioterapia",
-            label: "Fisioterapia",
-            type: "textarea",
-            placeholder: "Objetivos, frequência, tempo de terapia, evolução...",
-          },
-          {
-            name: "terapiaOcupacional",
-            label: "Terapia Ocupacional",
-            type: "textarea",
-            placeholder: "Objetivos, frequência, tempo de terapia, evolução...",
+            options: [
+              "Normal / sem alteração",
+              "Hiper — tem medo ou desconforto com movimento, altura ou balanço",
+              "Hipo — busca muito movimento, gira, corre, pula ou balança bastante",
+            ],
           },
         ],
       },
@@ -711,7 +782,6 @@ export const formSections = [
         fields: [
           { name: "pesoAtual", label: "Peso atual", type: "text", placeholder: "Ex: 25kg" },
           { name: "alturaAtual", label: "Altura atual", type: "text", placeholder: "Ex: 1,10m" },
-          { name: "imcPercentil", label: "IMC / Percentil", type: "text", placeholder: "Calculado pelo nutricionista" },
           {
             name: "curvaCrescimento",
             label: "Curva de crescimento",

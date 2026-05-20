@@ -1017,3 +1017,99 @@ select:focus {
   padding: 10px 14px;
   font-size: 13px;
 }
+
+.campo-titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #303846;
+}
+
+.campo-titulo strong {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #303846;
+}
+
+.campo-ajuda {
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.opcao-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.opcao-texto strong {
+  font-weight: 800;
+  color: #202938;
+}
+
+.opcao-texto small {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.legenda-opcoes {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f5f7fb;
+  border: 1px solid #e1e5ee;
+}
+
+.legenda-opcoes p {
+  margin: 0 0 8px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #5f6876;
+}
+
+.legenda-opcoes p:last-child {
+  margin-bottom: 0;
+}
+
+.legenda-opcoes strong {
+  color: #2d2e83;
+}
+
+.escala-legenda {
+  display: block;
+  margin-top: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.opcao-texto {
+  display: inline;
+  line-height: 1.4;
+}
+
+.opcao-texto strong {
+  font-weight: 800;
+  color: #202938;
+}
+
+.opcao-texto small {
+  margin-left: 4px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.campo-ajuda {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #6b7280;
+}
