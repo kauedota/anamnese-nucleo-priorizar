@@ -10,7 +10,7 @@ import { supabase } from "../lib/supabase";
 // Versão do aviso de privacidade/consentimento exibido ao responsável (registrada junto com a anamnese).
 const VERSAO_CONSENTIMENTO = "2026-10";
 const URL_POLITICA =
-  (import.meta.env.VITE_SITE_URL || "https://www.nucleopriorizar.com.br") +
+  (import.meta.env.VITE_SITE_URL || "https://www.clinicanucleopriorizar.com.br") +
   "/politica-de-privacidade";
 
 function Anamnese() {
