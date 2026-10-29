@@ -7,12 +7,19 @@ import SummaryCard from "../components/SummaryCard";
 import { formSections, initialForm } from "../data/formFields";
 import { supabase } from "../lib/supabase";
 
+// Versão do aviso de privacidade/consentimento exibido ao responsável (registrada junto com a anamnese).
+const VERSAO_CONSENTIMENTO = "2026-10";
+const URL_POLITICA =
+  (import.meta.env.VITE_SITE_URL || "https://www.nucleopriorizar.com.br") +
+  "/politica-de-privacidade";
+
 function Anamnese() {
   const [form, setForm] = useState(initialForm);
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [erro, setErro] = useState("");
   const [enviado, setEnviado] = useState(false);
   const [enviando, setEnviando] = useState(false);
+  const [consentimento, setConsentimento] = useState(false);
 
   const totalEtapas = formSections.length;
   const etapaFormulario = formSections[etapaAtual];
@@ -160,6 +167,14 @@ function Anamnese() {
 
     if (!validarFormularioCompleto()) return;
 
+    // dados de saúde de criança (LGPD arts. 11 e 14): exige consentimento específico do responsável
+    if (!consentimento) {
+      setErro(
+        "Para enviar, confirme o consentimento do responsável legal no aviso de privacidade ao final do formulário."
+      );
+      return;
+    }
+
     setEnviando(true);
     setErro("");
 
@@ -168,7 +183,14 @@ function Anamnese() {
       nome_responsavel: form.nomeResponsavel || "",
       email_responsavel: form.emailResponsavel || "",
       telefone_responsavel: form.telefoneResponsavel || "",
-      dados_completos: form,
+      dados_completos: {
+        ...form,
+        lgpd_consentimento: {
+          aceito: true,
+          versao: VERSAO_CONSENTIMENTO,
+          data_hora: new Date().toISOString(),
+        },
+      },
       status: "recebida",
     };
 
@@ -197,6 +219,7 @@ function Anamnese() {
 
     if (confirmar) {
       setForm(initialForm);
+      setConsentimento(false);
       setEtapaAtual(0);
       setErro("");
       setEnviado(false);
@@ -487,6 +510,42 @@ function Anamnese() {
                 Clique abaixo para enviar a anamnese para a clínica. Depois, se
                 desejar, baixe uma cópia em PDF ou Word.
               </p>
+
+              {/* TEXTO-MODELO: revisar com advogado antes de publicar (base legal, controlador, prazo de guarda). */}
+              <fieldset className="consentimento">
+                <legend>Aviso de privacidade e consentimento</legend>
+                <p>
+                  Esta anamnese reúne <strong>dados pessoais sensíveis de uma
+                  criança</strong> (como histórico de saúde e diagnósticos).
+                  Eles serão usados pela equipe do Núcleo Priorizar somente para
+                  avaliação e acompanhamento clínico, ficarão com acesso restrito
+                  aos profissionais autorizados e não serão vendidos nem usados
+                  para publicidade.
+                </p>
+                <p>
+                  Você pode pedir acesso, correção ou exclusão a qualquer momento
+                  pelo canal do encarregado (DPO) descrito na{" "}
+                  <a href={URL_POLITICA} target="_blank" rel="noopener noreferrer">
+                    Política de Privacidade
+                  </a>
+                  .
+                </p>
+                <label className="consentimento-check">
+                  <input
+                    type="checkbox"
+                    checked={consentimento}
+                    onChange={(e) => {
+                      setErro("");
+                      setConsentimento(e.target.checked);
+                    }}
+                  />
+                  <span>
+                    Declaro ser o responsável legal pela criança e consinto, de
+                    forma específica e destacada, com o tratamento dos dados de
+                    saúde informados para essa finalidade.
+                  </span>
+                </label>
+              </fieldset>
 
               <div className="botoes-finalizar">
                 <button type="submit" className="botao" disabled={enviando}>
