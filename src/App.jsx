@@ -1,14 +1,8 @@
 import Anamnese from "./pages/Anamnese";
-import Admin from "./pages/Admin";
 import "./index.css";
 
+// A leitura das fichas é feita no painel da clínica (aba "Anamneses"), não neste app.
 function App() {
-  const rotaAtual = window.location.pathname;
-
-  if (rotaAtual === "/admin") {
-    return <Admin />;
-  }
-
   return <Anamnese />;
 }
 

@@ -5,7 +5,7 @@ import SectionTitle from "../components/SectionTitle";
 import InputField from "../components/InputField";
 import SummaryCard from "../components/SummaryCard";
 import { formSections, initialForm } from "../data/formFields";
-import { supabase } from "../lib/supabase";
+import { enviarAnamnese } from "../lib/api";
 
 // Versão do aviso de privacidade/consentimento exibido ao responsável (registrada junto com a anamnese).
 const VERSAO_CONSENTIMENTO = "2026-10";
@@ -178,38 +178,24 @@ function Anamnese() {
     setEnviando(true);
     setErro("");
 
-    const dadosParaSalvar = {
-      nome_crianca: form.nomeCrianca || "",
-      nome_responsavel: form.nomeResponsavel || "",
-      email_responsavel: form.emailResponsavel || "",
-      telefone_responsavel: form.telefoneResponsavel || "",
-      dados_completos: {
-        ...form,
-        lgpd_consentimento: {
-          aceito: true,
-          versao: VERSAO_CONSENTIMENTO,
-          data_hora: new Date().toISOString(),
-        },
-      },
-      status: "recebida",
-    };
-
-    const { error } = await supabase.from("anamneses").insert([dadosParaSalvar]);
-
-    setEnviando(false);
-
-    if (error) {
-      console.error("Erro ao salvar anamnese:", error);
-
-      setErro(
-        `Erro ao enviar: ${error.message || "Erro desconhecido"} ${
-          error.details ? `Detalhes: ${error.details}` : ""
-        }`
-      );
-
+    try {
+      await enviarAnamnese({
+        childName: form.nomeCrianca || "",
+        guardianName: form.nomeResponsavel || "",
+        guardianEmail: form.emailResponsavel || "",
+        guardianPhone: form.telefoneResponsavel || "",
+        data: form,
+        consent: true,
+        consentVersion: VERSAO_CONSENTIMENTO,
+        website: "",
+      });
+    } catch (erro) {
+      setEnviando(false);
+      setErro(erro.message);
       return;
     }
 
+    setEnviando(false);
     setEnviado(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

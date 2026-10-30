@@ -93,7 +93,7 @@ src/
 ├── data/
 │   └── formFields.js
 ├── lib/
-│   └── supabase.js
+│   └── api.js
 ├── pages/
 │   ├── Admin.jsx
 │   └── Anamnese.jsx
@@ -126,7 +126,7 @@ Rota privada utilizada pela equipe da clínica para visualizar, buscar, baixar e
 
 ## Banco de Dados
 
-O sistema utiliza o Supabase para banco de dados e autenticação.
+As fichas são enviadas para a API da própria clínica (`POST /api/v1/public/anamnese`), que guarda no banco da clínica. Não há mais Supabase.
 
 Tabela principal:
 
@@ -153,7 +153,7 @@ O campo `dados_completos` armazena todas as respostas da anamnese em formato JSO
 
 ## Segurança
 
-O painel administrativo possui autenticação via Supabase Auth.
+A leitura das fichas (lista, PDF, situação, exclusão) é feita na aba **Anamneses** do painel da clínica, só para administradores. Este app não tem mais painel próprio.
 
 As regras de segurança foram configuradas com Row Level Security, permitindo:
 
@@ -172,8 +172,7 @@ O arquivo `.env.local` deve permanecer fora do GitHub.
 Para executar o projeto localmente, é necessário criar um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
 
 ```env
-VITE_SUPABASE_URL=
-VITE_SUPABASE_PUBLISHABLE_KEY=
+VITE_API_URL=http://localhost:8080
 ```
 
 Observação: nunca utilizar a Secret Key ou Service Role Key no frontend.
@@ -200,7 +199,7 @@ Instale as dependências:
 npm install
 ```
 
-Crie o arquivo `.env.local` com as variáveis do Supabase:
+Para desenvolver, rode o backend da clínica em `localhost:8080` (o Vite já encaminha `/api`). Opcionalmente defina em `.env.local`:
 
 ```env
 VITE_SUPABASE_URL=SUA_URL_DO_SUPABASE
@@ -362,3 +361,11 @@ Desenvolvido por Kauê Dota.
 
 LinkedIn: https://www.linkedin.com/in/kaue-dota-ba105124b/  
 GitHub: https://github.com/kauedota
+
+## Definição do formulário para o painel da clínica
+
+O painel mostra as respostas com os rótulos das perguntas. Quando `src/data/formFields.js` mudar, regenere o arquivo usado pelo backend:
+
+```bash
+node scripts/exportar-formulario.mjs ../nucleo-priorizar/backend/src/main/resources/anamnese-form.json
+```
