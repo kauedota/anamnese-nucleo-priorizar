@@ -3,7 +3,6 @@
 ![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=000)
 ![Vite](https://img.shields.io/badge/Vite-Build-646CFF?style=for-the-badge&logo=vite&logoColor=fff)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Language-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)
-![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase&logoColor=fff)
 ![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=for-the-badge&logo=vercel&logoColor=fff)
 ![Status](https://img.shields.io/badge/Status-Em%20Funcionamento-009B4E?style=for-the-badge)
 
@@ -72,7 +71,7 @@ O formulário é dividido nas seguintes etapas:
 - Vite
 - JavaScript
 - CSS
-- Supabase
+- API da clínica (Spring Boot + PostgreSQL)
 - Vercel
 - jsPDF
 - Lucide React
@@ -202,8 +201,7 @@ npm install
 Para desenvolver, rode o backend da clínica em `localhost:8080` (o Vite já encaminha `/api`). Opcionalmente defina em `.env.local`:
 
 ```env
-VITE_SUPABASE_URL=SUA_URL_DO_SUPABASE
-VITE_SUPABASE_PUBLISHABLE_KEY=SUA_PUBLISHABLE_KEY_DO_SUPABASE
+VITE_API_URL=http://localhost:8080
 ```
 
 Execute o projeto:
@@ -248,8 +246,7 @@ Project Settings > Environment Variables
 Variáveis necessárias:
 
 ```env
-VITE_SUPABASE_URL
-VITE_SUPABASE_PUBLISHABLE_KEY
+VITE_API_URL (opcional)
 ```
 
 Para permitir acesso direto à rota `/admin`, foi criado o arquivo `vercel.json`:
@@ -310,7 +307,7 @@ O sistema contribui para:
 Projeto em funcionamento com:
 
 - formulário público online;
-- integração com Supabase;
+- ficha enviada à API da clínica e lida no painel da clínica;
 - painel administrativo privado;
 - autenticação;
 - listagem de anamneses;
